@@ -11,6 +11,7 @@ import com.example.aa.mydatabase.R;
 import com.example.aa.mydatabase.models.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by aa on 17.12.2017.
@@ -18,9 +19,9 @@ import java.util.ArrayList;
 
 public class UserAdapter extends RecyclerView.Adapter <UserAdapter.ViewHolder> {
 
-    ArrayList<User> users;
+    List<User> users;
 
-    public UserAdapter(ArrayList<User> users) {
+    public UserAdapter(List<User> users) {
         this.users = users;
     }
 

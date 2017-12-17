@@ -1,5 +1,7 @@
 package com.example.aa.mydatabase;
 
+import android.arch.persistence.room.Room;
+import android.arch.persistence.room.RoomDatabase;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +15,8 @@ import com.example.aa.mydatabase.adapters.UserAdapter;
 import com.example.aa.mydatabase.models.User;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -20,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     UserAdapter adapter;
     FloatingActionButton fab;
-    ArrayList<User>users;
+  //  ArrayList<User>users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +35,17 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler_view);
 
-        users = new ArrayList<>();
+//        users = new ArrayList<>();
+//
+//        for (int i =0; i< 10 ; i++){
+//            User user = new User("Luaksz #" + i,"BUjno","bujnoluskza@gmai.pl");
+//            users.add(user);
+//        }
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production")
+                .allowMainThreadQueries()
+                .build();
 
-
-        for (int i =0; i< 10 ; i++){
-            User user = new User("Luaksz #" + i,"BUjno","bujnoluskza@gmai.pl");
-            users.add(user);
-        }
-
+        List<User> users = db.userDao().getAllUsers();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new UserAdapter(users);
         recyclerView.setAdapter(adapter);
