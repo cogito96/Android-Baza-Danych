@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.aa.mydatabase.adapters.UserAdapter;
+import com.example.aa.mydatabase.models.User;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     UserAdapter adapter;
     FloatingActionButton fab;
-    ArrayList<String> users;
+    ArrayList<User>users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         for (int i =0; i< 10 ; i++){
-            users.add("Daniel #" + i);
+            User user = new User("Luaksz #" + i,"BUjno","bujnoluskza@gmai.pl");
+            users.add(user);
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new UserAdapter(users);
