@@ -36,7 +36,7 @@ public class CreateUser extends AppCompatActivity {
         final AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production")
                 .allowMainThreadQueries()
                 .build();
-  
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,5 +46,6 @@ public class CreateUser extends AppCompatActivity {
                 startActivity(new Intent(CreateUser.this, MainActivity.class));
             }
         });
+
     }
 }
