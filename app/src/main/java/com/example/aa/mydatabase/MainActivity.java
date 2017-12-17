@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             User user = new User("Luaksz #" + i,"BUjno","bujnoluskza@gmai.pl");
             users.add(user);
         }
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new UserAdapter(users);
         recyclerView.setAdapter(adapter);
