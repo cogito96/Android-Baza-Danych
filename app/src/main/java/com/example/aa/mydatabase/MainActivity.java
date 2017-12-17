@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: pressed!");
+                startActivity(new Intent(MainActivity.this , CreateUser.class));
             }
         });
     }
