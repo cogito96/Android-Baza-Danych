@@ -18,4 +18,6 @@ public interface UserDao {
 
     @Insert
     void insertAll(User... users);
+
+
 }

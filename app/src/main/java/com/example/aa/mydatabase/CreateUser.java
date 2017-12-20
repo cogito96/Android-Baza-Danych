@@ -42,10 +42,11 @@ public class CreateUser extends AppCompatActivity {
             public void onClick(View v) {
                 //TODO 10/28/17 Save to database
                 Log.d(TAG, "onClick:firstName: " + firstName.getText().toString());
-                db.userDao().insertAll(new User("Lukasz","BUjno","lukaszbujno@gmail.com"));
+       //         db.userDao().insertAll(new User("Lukasz","BUjno","lukaszbujno@gmail.com"));
+                User user = new User(firstName.getText().toString(), lastName.getText().toString() ,email.getText().toString());
+                db.userDao().insertAll(user);
                 startActivity(new Intent(CreateUser.this, MainActivity.class));
             }
         });
-
     }
 }
